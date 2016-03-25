@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller{
+
+    public function getDashboard(){
+        $posts = Post::all();
+        return view('dashboard', ['posts' => $posts]);
+    }
+
     public function postCreatePost(Request $request){
         $this->validate($request, [
            'body' => 'required|max:1000'
