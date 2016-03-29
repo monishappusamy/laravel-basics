@@ -25,13 +25,13 @@
                         {{ $post->body }}
                     </p>
                     <div class="info">
-                        Posted by {{ $post->user->first_name }} on  $post->created_at }}
+                        Posted by {{ $post->user->first_name }} on  {{$post->created_at }}
                     </div>
                     <div class="interaction">
                         <a href="#">Like</a> |
                         <a href="#">Dislike</a> |
                         <a href="#">Edit</a> |
-                        <a href="#">Delete</a> |
+                        <a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a> |
                     </div>
                 </article>
             @endforeach
